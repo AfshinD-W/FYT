@@ -2,9 +2,8 @@
 
 namespace FYT.Domain.Entities
 {
-    public class UserType : BaseEntity<Guid>
+    public class UserType : BaseEntity<int>
     {
-        public int Code { get; set; }
         public required string Name { get; set; }
     }
 }
