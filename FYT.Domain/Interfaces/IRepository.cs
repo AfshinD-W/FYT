@@ -8,10 +8,10 @@ namespace FYT.Domain.Interfaces
         Task<ICollection<Tentity>> GetAllAsync();
 
         Task<Tentity> CreateAsync(Tentity entity);
-        Task<ICollection<Tentity>> BulkCreateAsync(IEnumerable<Tentity> entitys);
+        Task<ICollection<Tentity>> BulkCreateAsync(IEnumerable<Tentity> entities);
 
         Task<Tentity> UpdateAsync(Tentity entity);
-        Task<ICollection<Tentity>> BulkUpdateAsync(IEnumerable<Tentity> entitys);
+        Task<ICollection<Tentity>> BulkUpdateAsync(IEnumerable<Tentity> entities);
 
         Task<bool> DeleteAsync(Tkey id);
         Task<int> BulkDeleteAsync(IEnumerable<Tkey> ids);
