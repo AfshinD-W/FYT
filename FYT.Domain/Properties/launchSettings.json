@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Start": {
+      "commandName": "Executable",
+      "executablePath": "D:\\Proj\\FYT\\FYT.sln"
+    }
+  }
+}
