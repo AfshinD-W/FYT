@@ -4,25 +4,25 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FYT.Infrastructure.Data
 {
-    public class Repository<Tkey, Tentity> : IRepository<Tkey, Tentity> where Tkey : struct, IEquatable<Tkey> where Tentity : BaseEntity<Tkey>
+    public class Repository<TKey, TEntity> : IRepository<TKey, TEntity> where TKey : struct, IEquatable<TKey> where TEntity : BaseEntity<TKey>
     {
         private readonly AppDbContext _context;
-        private readonly DbSet<Tentity> _dbSet;
+        private readonly DbSet<TEntity> _dbSet;
 
         public Repository(AppDbContext appDbContext)
         {
             _context = appDbContext;
-            _dbSet = _context.Set<Tentity>();
+            _dbSet = _context.Set<TEntity>();
         }
 
         #region Get
 
-        public async Task<Tentity> GetAsync(Tkey id)
+        public async Task<TEntity?> GetAsync(TKey id)
         {
             return await _dbSet.FindAsync(id);
         }
 
-        public async Task<ICollection<Tentity>> GetAllAsync()
+        public async Task<ICollection<TEntity>> GetAllAsync()
         {
             return await _dbSet.ToListAsync();
         }
@@ -30,42 +30,42 @@ namespace FYT.Infrastructure.Data
         #endregion
 
         #region Create
-        public async Task<Tentity> CreateAsync(Tentity entity)
+        public async Task AddAsync(TEntity entity)
         {
-            throw new NotImplementedException();
+            await _dbSet.AddAsync(entity);
         }
 
-        public Task<ICollection<Tentity>> BulkCreateAsync(IEnumerable<Tentity> entities)
+        public async Task BulkAddAsync(IEnumerable<TEntity> entities)
         {
-            throw new NotImplementedException();
+            await _dbSet.AddRangeAsync(entities);
         }
 
         #endregion
 
         #region Update
 
-        public Task<ICollection<Tentity>> BulkUpdateAsync(IEnumerable<Tentity> entities)
+        public async Task UpdateAsync(TEntity entity)
         {
-            throw new NotImplementedException();
+            _dbSet.Update(entity);
         }
 
-        public Task<Tentity> UpdateAsync(Tentity entity)
+        public async Task BulkUpdateAsync(IEnumerable<TEntity> entities)
         {
-            throw new NotImplementedException();
+            _dbSet.UpdateRange(entities);
         }
 
         #endregion
 
         #region Delete
 
-        public Task<bool> DeleteAsync(Tkey id)
+        public async Task DeleteAsync(TEntity entity)
         {
-            throw new NotImplementedException();
+            _dbSet.Remove(entity);
         }
 
-        public Task<int> BulkDeleteAsync(IEnumerable<Tkey> ids)
+        public async Task BulkDeleteAsync(IEnumerable<TEntity> entities)
         {
-            throw new NotImplementedException();
+            _dbSet.RemoveRange(entities);
         }
 
         #endregion

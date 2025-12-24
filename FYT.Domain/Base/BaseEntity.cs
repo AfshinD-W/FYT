@@ -1,8 +1,8 @@
 ﻿namespace FYT.Domain.Base
 {
-    public class BaseEntity<Tkey> where Tkey : struct, IEquatable<Tkey>
+    public class BaseEntity<TKey> where TKey : struct, IEquatable<TKey>
     {
-        public Tkey Id { get; set; }
+        public TKey Id { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public Guid? Creator { get; set; }

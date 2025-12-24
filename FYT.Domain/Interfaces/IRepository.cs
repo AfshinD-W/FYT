@@ -2,18 +2,18 @@
 
 namespace FYT.Domain.Interfaces
 {
-    public interface IRepository<Tkey, Tentity> where Tkey : struct, IEquatable<Tkey> where Tentity : BaseEntity<Tkey>
+    public interface IRepository<TKey, TEntity> where TKey : struct, IEquatable<TKey> where TEntity : BaseEntity<TKey>
     {
-        Task<Tentity> GetAsync(Tkey id);
-        Task<ICollection<Tentity>> GetAllAsync();
+        Task<TEntity?> GetAsync(TKey id);
+        Task<ICollection<TEntity>> GetAllAsync();
 
-        Task<Tentity> CreateAsync(Tentity entity);
-        Task<ICollection<Tentity>> BulkCreateAsync(IEnumerable<Tentity> entities);
+        Task AddAsync(TEntity entity);
+        Task BulkAddAsync(IEnumerable<TEntity> entities);
 
-        Task<Tentity> UpdateAsync(Tentity entity);
-        Task<ICollection<Tentity>> BulkUpdateAsync(IEnumerable<Tentity> entities);
+        Task UpdateAsync(TEntity entity);
+        Task BulkUpdateAsync(IEnumerable<TEntity> entities);
 
-        Task<bool> DeleteAsync(Tkey id);
-        Task<int> BulkDeleteAsync(IEnumerable<Tkey> ids);
+        Task DeleteAsync(TEntity entity);
+        Task BulkDeleteAsync(IEnumerable<TEntity> entities);
     }
 }
