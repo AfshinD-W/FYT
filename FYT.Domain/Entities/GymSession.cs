@@ -4,8 +4,8 @@ namespace FYT.Domain.Entities
 {
     public class GymSession
     {
-        public Guid GymId { get; set; }
         public required Gym Gym { get; set; }
+        public Guid GymId { get; set; }
 
         public int Code { get; set; }
         public required string Name { get; set; }

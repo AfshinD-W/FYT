@@ -17,8 +17,8 @@ namespace FYT.Domain.Entities
         public TimeSpan? MaleTime { get; set; }
         public string? ImagePath { get; set; }
 
-        public Guid OwnerId { get; set; }
         public required User User { get; set; }
+        public Guid OwnerId { get; set; }
 
         public required ICollection<GymSession> GymSessions { get; set; }
     }

@@ -13,5 +13,13 @@ namespace FYT.Infrastructure.Data
         public DbSet<UserRoles> UserRoles { get; set; }
         public DbSet<UserType> UserTypes { get; set; }
 
+
+        protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+        {
+            base.ConfigureConventions(configurationBuilder);
+
+
+            configurationBuilder.Properties<string>().HaveMaxLength(256);
+        }
     }
 }
