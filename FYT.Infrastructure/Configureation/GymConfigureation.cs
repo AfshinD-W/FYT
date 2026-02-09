@@ -8,16 +8,17 @@ namespace FYT.Infrastructure.Configureation
     {
         public void Configure(EntityTypeBuilder<Gym> builder)
         {
-            builder.Property(n => n.Name).HasMaxLength(68);
+            builder.Property(n => n.Name).HasMaxLength(50);
 
-            //Set max len for this property
-            builder.Property(x => x.Description);
+            builder.Property(x => x.Description).HasMaxLength(1500);
 
             builder.Property(x => x.Latitude).HasMaxLength(7);
 
             builder.Property(x => x.Longitude).HasMaxLength(7);
 
-            builder.HasOne(x => x.User).WithOne().HasForeignKey<Gym>(x => x.OwnerId);
+            builder.HasOne(x => x.User)
+                .WithOne()
+                .HasForeignKey<Gym>(x => x.OwnerId);
         }
     }
 }
