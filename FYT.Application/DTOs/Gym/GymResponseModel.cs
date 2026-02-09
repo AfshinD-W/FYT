@@ -20,5 +20,6 @@ namespace FYT.Application.DTOs.Gym
         public Guid OwnerId { get; set; }
 
         public required ICollection<GymSessionResponseModel> GymSessions { get; set; }
+
     }
 }
