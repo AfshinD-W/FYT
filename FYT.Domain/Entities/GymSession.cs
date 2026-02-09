@@ -10,6 +10,6 @@ namespace FYT.Domain.Entities
         public int Code { get; set; }
         public required string Name { get; set; }
         public required int Price { get; set; }
-        public Gender Gender { get; set; }
+        public EnumGender Gender { get; set; }
     }
 }

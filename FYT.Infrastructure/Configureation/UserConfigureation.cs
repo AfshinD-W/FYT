@@ -13,7 +13,7 @@ namespace FYT.Infrastructure.Configureation
             builder.Property(x => x.UserName).HasMaxLength(50);
 
             //change this to max
-            builder.Property(x => x.Password).HasMaxLength(1000);
+            builder.Property(x => x.Password).HasMaxLength(225);
         }
     }
 }

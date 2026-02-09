@@ -12,7 +12,7 @@ namespace FYT.Application.DTOs.Gym
         public double? Longitude { get; set; }
         public TimeSpan? OpenTime { get; set; }
         public TimeSpan? CloseTime { get; set; }
-        public Gender Gender { get; set; }
+        public EnumGender Gender { get; set; }
         public TimeSpan? FemaleTime { get; set; }
         public TimeSpan? MaleTime { get; set; }
         public string? ImagePath { get; set; }

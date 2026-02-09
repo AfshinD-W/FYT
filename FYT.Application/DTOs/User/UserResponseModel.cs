@@ -1,9 +1,13 @@
-﻿namespace FYT.Application.DTOs.User
+﻿using FYT.Domain.Enums;
+
+namespace FYT.Application.DTOs.User
 {
     public class UserResponseModel
     {
         public required string Name { get; set; }
         public string? UserName { get; set; }
+        public int Age { get; set; }
+        public EnumGender Gender { get; set; }
         public string? Email { get; set; }
         public bool? EmailConfirmed { get; set; }
         public required string Password { get; set; }

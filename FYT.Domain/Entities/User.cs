@@ -1,4 +1,5 @@
 ﻿using FYT.Domain.Base;
+using FYT.Domain.Enums;
 
 namespace FYT.Domain.Entities
 {
@@ -6,6 +7,8 @@ namespace FYT.Domain.Entities
     {
         public required string Name { get; set; }
         public string? UserName { get; set; }
+        public int Age { get; set; }
+        public EnumGender Gender { get; set; }
         public string? Email { get; set; }
         public bool? EmailConfirmed { get; set; }
         public required string Password { get; set; }
